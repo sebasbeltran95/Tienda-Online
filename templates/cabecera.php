@@ -19,10 +19,10 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="d-flex flex-grow-1">
                     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-                    <a class="navbar-brand d-none d-lg-inline-block fuente" href="index.html" style="color: white; font-size: 2em;">
+                    <a class="navbar-brand d-none d-lg-inline-block fuente" href="./index.php" style="color: white; font-size: 2em;">
                         Tienda
                     </a>
-                    <a class="navbar-brand-two mx-auto d-lg-none d-inline-block fuente" href="index.html" style="color: white; font-size: 2em;">
+                    <a class="navbar-brand-two mx-auto d-lg-none d-inline-block fuente" href="./index.php" style="color: white; font-size: 2em;">
                         Tienda
                     </a>
                     <div class="w-100 text-right">

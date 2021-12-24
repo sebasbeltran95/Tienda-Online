@@ -6,12 +6,22 @@ include 'templates/cabecera.php';
 ?>
 
     <div class="container">
+        <?php if($mensaje!==""){ ?>
         <div class="alert alert-success">
-            pantalla de mensaje...
+            <!-- <?php echo $mensaje; ?> -->
             <!-- <?php print_r($_POST); ?> -->
-            <?php echo $mensaje; ?>
-            <a href="#" class="badge badge-success">Ver Carrto</a>
+            <!-- <?php echo $mensaje; ?> -->
+            <h6 class="text-center">Hay un: <?php echo count($_SESSION['carrito']); ?>  item en el carrito  <a href="./mostrarCarrito.php" class="badge badge-success">Ver Carrto</a></h6>
+            
         </div>
+        <?php } else {?>
+            <div class="alert alert-success">
+            <!-- <?php print_r($_POST); ?> -->
+            <!-- <?php echo $mensaje; ?> -->
+            <h6 class="text-center">El carrito esta vacio </h6>
+            
+        </div>
+        <?php } ?>
         <div class="row">
             <?php
             $sentencia=$pdo->prepare("SELECT * FROM `productos`");

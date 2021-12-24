@@ -43,17 +43,26 @@ if(isset($_POST['btnAccion'])){
                     'precio'=>$precio
                 );
                 $_SESSION['carrito'][0]=$producto;
+                $mensaje= "producto agregado al carrito";
             } else {
-                $numeroProductos=count($_SESSION['carrito']);
-                $producto=array(
-                    'id'=>$id,
-                    'nombre'=>$nombre,
-                    'cantidad'=>$cantidad,
-                    'precio'=>$precio
-                );
-                $_SESSION['carrito'][$numeroProductos]=$producto;
+
+                $idProductos = array_column($_SESSION['carrito'],"id");
+                if(in_array($id,$idProductos)){
+                    echo "<script> alert('El prodcuto ya ha sido seleccionado...'); </script>";
+                } else {
+                    $numeroProductos=count($_SESSION['carrito']);
+                    $producto=array(
+                        'id'=>$id,
+                        'nombre'=>$nombre,
+                        'cantidad'=>$cantidad,
+                        'precio'=>$precio
+                    );
+                    $_SESSION['carrito'][$numeroProductos]=$producto;
+                    $mensaje= "producto agregado";
+                }
             }
-            $mensaje= print_r($_SESSION,true);
+            // $mensaje= print_r($_SESSION,true);
+            $mensaje= "producto agregado  al carrito";
             break;
 
             case "Eliminar":
@@ -62,7 +71,7 @@ if(isset($_POST['btnAccion'])){
                  
                     foreach($_SESSION['carrito'] as $indice=>$producto){
                         if($producto['id']==$id){
-                            unset($_SESSION['cartito'][$indice]);
+                            unset($_SESSION['carrito'][$indice]);
                             echo "<script>alert('Elemento borrado....')</script>";
                         }
                     }
